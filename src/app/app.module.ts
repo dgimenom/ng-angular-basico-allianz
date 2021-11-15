@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 
 import { ServerComponent } from './server/server.component';
 import { ClientComponent } from './client/client.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, ServerComponent, ClientComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

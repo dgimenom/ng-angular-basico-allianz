@@ -1,1 +1,56 @@
-<p>Server component working!</p>
+<div class="row m-5">
+  <div class="card p-4 col-6 mx-auto text-center">
+    <h3>Servers</h3>
+    <p>
+      Server with ID {{ serverId }} is
+      <!-- Utilización de la directiva ngClass para añadir una clase u otro según el estado de la variable serverStatus -->
+      <strong class="p-1 rounded" [ngClass]="{
+                'online': serverStatus === 'Online',
+                'offline': serverStatus === 'Offline'
+            }">
+        {{ getServerStatus() }}
+      </strong>
+    </p>
+  </div>
+</div>
+
+<div class="row m-5">
+  <div class="card p-4 col-6 mx-auto">
+    <div class="row">
+      <div class="col-6">
+        <!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)"> -->
+        <input id="serverName" type="text" class="form-control" [(ngModel)]="serverName" placeholder="Server name">
+      </div>
+      <div class="col-6">
+        <p>Variable serverName value: {{ serverName }}</p>
+      </div>
+      <div class="col-6">
+        <button class="btn btn-primary my-3 me-2" (click)="onApply()">
+          Apply name
+        </button>
+        <button class="btn btn-secondary my-3" [disabled]="!allowNewServer" (click)="onCreateServer()">
+          Add Server
+        </button>
+      </div>
+      <div class="col-12 text-center">
+        <p class="alert alert-primary">{{ serverCreationStatus }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row m-5">
+  <div class="card p-4 col-6 mx-auto">
+    <p>Status server:</p>
+    <!-- Ejemplo directiva ngIf -->
+    <h4 *ngIf="serverCreated else serverNoCreated">
+      Server created successfully.
+    </h4>
+    <ng-template #serverNoCreated>
+      <!-- Ejemplo directiva ngStyle aplicando el cambio de color por una variable colorStatus -->
+      <h4 [ngStyle]="{color: colorStatus}">
+        Server not created yet.
+      </h4>
+    </ng-template>
+  </div>
+</div>
