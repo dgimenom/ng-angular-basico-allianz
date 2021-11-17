@@ -35,6 +35,27 @@
       <div class="col-12 text-center">
         <p class="alert alert-primary">{{ serverCreationStatus }}</p>
       </div>
+
+
+      <!-- NGFOR WITH STRING -->
+      <h2>Server list with strings</h2>
+      <ul>
+        <li *ngFor="let server of servers; let i = index">
+          <strong [ngStyle]="{ backgroundColor: i % 2 ? 'yellow' : 'blue'}">
+            {{server}}
+          </strong>
+        </li>
+      </ul>
+
+      <!-- NGFOR WITH OBJECT -->
+      <h2>Server list with object</h2>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let server of serversNew; let i = index;">
+          <span class="badge" [ngClass]="getStatusClass(server.status)">{{ server.status }}</span>
+          <span class="ml-2">{{ server. name }} | {{ server.instanceType }}</span>
+        </li>
+      </ul>
+
     </div>
   </div>
 </div>

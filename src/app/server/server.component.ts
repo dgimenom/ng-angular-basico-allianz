@@ -6,17 +6,60 @@ import { Component } from '@angular/core';
   styleUrls: ['server.component.css'],
 })
 export class ServerComponent {
-
   serverId: number = 10;
   serverStatus: string = 'Offline';
-  
+
   allowNewServer: boolean = false;
-  
+
   serverCreationStatus: string = 'No se ha creado un servidor';
   serverName: string = '';
   serverCreated: boolean = false;
-  
   colorStatus: string = 'blue';
+
+  servers = ['Server A', 'Server B', 'Server C', 'Server D'];
+
+  serversNew = [
+    {
+      instanceType: 'medium',
+      name: 'Production',
+      status: 'stable',
+      started: new Date(15, 1, 2017),
+      maintenanceCost: 49.9,
+    },
+    {
+      instanceType: 'large',
+      name: 'User database',
+      status: 'stable',
+      started: new Date(15, 1, 2017),
+      maintenanceCost: 25.85,
+    },
+    {
+      instanceType: 'small',
+      name: 'Stage',
+      status: 'failed',
+      started: new Date(15, 1, 2017),
+      maintenanceCost: 10.0,
+    },
+    {
+      instanceType: 'small',
+      name: 'Development',
+      status: 'initializing',
+      started: new Date(15, 1, 2017),
+      maintenanceCost: 10.0,
+    },
+  ];
+
+  getStatusClass(statusServer: string){
+    const classes = {
+      'stable': 'alert-success',
+      'failed': 'alert-danger',
+      'initializing': 'alert-warning'
+    }
+    // const classesBadge = ['badge-success', 'badge-danger', 'badge-warning'];
+    return classes['failed'];
+  }
+
+
 
   constructor() {
     setTimeout(() => {
@@ -25,27 +68,26 @@ export class ServerComponent {
     }, 2000);
   }
 
-  getServerStatus(){
+  getServerStatus() {
     return this.serverStatus;
   }
 
-  onCreateServer(){
+  onCreateServer() {
     this.serverCreationStatus = 'Ya se ha creado un servidor';
   }
 
-  onUpdateServerName(event: Event){
+  onUpdateServerName(event: Event) {
     const name = (event.target as HTMLInputElement).value;
     this.serverName = name;
   }
-  
-  onApply(){
+
+  onApply() {
     this.serverName = 'myName';
     console.log('heheheh');
     this.serverCreated = true;
   }
 
-  getColor(){
+  getColor() {
     return this.allowNewServer ? 'green' : 'red';
   }
-
 }
