@@ -51,7 +51,7 @@
       <h2>Server list with object</h2>
       <ul class="list-group">
         <li class="list-group-item" *ngFor="let server of serversNew; let i = index;">
-          <span class="badge" [ngClass]="getStatusClass(server.status)">{{ server.status }}</span>
+          <span class="alert" [ngClass]="getStatusClass(server.status)">{{ server.status }}</span>
           <span class="ml-2">{{ server. name }} | {{ server.instanceType }}</span>
         </li>
       </ul>
