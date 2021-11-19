@@ -1,0 +1,13 @@
+- Display the mathematical constant e, defined in the app.component.ts, only with 3 decimals.
+
+- Create a custom 'round' pipe which returns a rounded number. Apply this pipe to 'Maintenance Cost' server property.
+
+- Display the 'Started' property in the following format: "dd/MM/yyyy".
+
+- Create a 'reverse' custom pipe which returns a reversed string. Note: There is a reverse method in JS but it only works on arrays. Tip: You can use split method to convert a string to an array and join method to reconvert it to a string.
+
+- Create a 'noWhitespace' custom pipe which returns a string without any whitespace and apply it to the server 'Name'. Note: Check the replace JS method in the link below. Tip: regular expression: /\s/g
+
+https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/String/replace
+
+- Create a 'percentage' custom pipe which receives a number as an input, a parameter indicating the % (e.g. the 25% of the input value) and returns a string with the calculated value and '%'. You can set the default parameter value 100.

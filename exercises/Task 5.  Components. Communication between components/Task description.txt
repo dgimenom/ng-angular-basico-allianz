@@ -1,0 +1,25 @@
+- Create a new component Recipes.
+- Create a Recipe model with the following properties: id(number), name (string), description (string), difficulty (string), estimatedTime (number) and ingredients (string[]). Desciption property is optional.
+- Create a Recipe component (child of Recipes)
+- Create recipes property in the parent:
+	recipes = [
+		{
+			id: 0,
+			name: 'Pizza',
+			description: 'The awesome pizza!',
+			difficulty: 'medium',
+			estimatedTime: 60,
+			ingredients: ['ham', 'tomato', 'mozzarella']
+		},
+		{
+			id: 1,
+			name: 'Veggie Burger',
+			description: 'The best burger ever!',
+			difficulty: 'easy',
+			estimatedTime: 30,
+			ingredients: ['veggie burger', 'tomato', 'onion']
+		}
+	];
+- Display the recipes in the Recipe component in some kind of card (sending each recipe data from parent to children).
+- Add near (or below) each recipe, an input and a button 'Add ingredient'. Update the recipes list with the new ingredient of the recipe (by emitting the recipe, its ingredients of just the new ingredient).
+- Create a new component CreateRecipe (child of Recipes) an add a 'Add recipe' button and emit a new recipe to the Recipes component. (you can hardcode a random recipe).

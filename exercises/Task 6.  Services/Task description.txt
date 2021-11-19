@@ -1,0 +1,4 @@
+- Optimize the Recipes App workflow by creating a RecipesService.
+- Create a RecipesService service.
+- Add the AddRecipe functionality and use it in the CreateRecipe component.
+- Add the UpdateRecipe functionality and use it in the Recipe component.
