@@ -2,7 +2,21 @@
 
 <!-- <app-server-classes title={{title}}></app-server-classes> -->
 
-<app-server-classes [title]='title'></app-server-classes>
+<!-- <app-server-classes [title]='title'></app-server-classes> -->
 <!-- <app-server-classes [appTitle]='title'></app-server-classes> -->
 
-<!-- <app-client></app-client> -->
+<app-client></app-client>
+
+<app-servers
+
+    (onCreate)="handleCreatedServer($event)"
+>
+    <div header class="card p-4 mb-2">
+        <h2>Servers Header</h2>
+    </div>
+
+    <div footer class="card p-4 mt-4">
+        <h5>Footer</h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptates repellendus eius veritatis facere nisi dolorum quasi ducimus est fuga? Deserunt cumque ea ducimus aperiam praesentium exercitationem molestias? Nemo, doloribus?</p>
+    </div>
+</app-servers>

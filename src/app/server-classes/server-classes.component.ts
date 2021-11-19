@@ -19,7 +19,8 @@ export class ServerClassesComponent {
   date: Date = new Date(Date.now());
   
   serverName = '';
-  servers: Server[] = [
+
+  @Input() servers: Server[] = [
     new Server('Production', 1, 'stable'),
     new Server('User database', 2, 'stable'),
     new Server('Stage', 3, 'failed'),
