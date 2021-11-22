@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Server } from '../server.model';
+import { ServersService } from '../services/servers.service';
 
 @Component({
   selector: 'app-server',
@@ -9,18 +10,20 @@ import { Server } from '../server.model';
 export class ServerComponent {
   @Input() server?: Server;
 
+  constructor(private service: ServersService) {
+  }
+
   getStatusClass(server: Server){
     const classes: {[key: string]: string}  = {
-      'stable': 'alert-success',
-      'failed': 'alert-danger',
+      'online': 'alert-success',
+      'offline': 'alert-danger',
       'initializing': 'alert-warning'
     }
 
     return classes[server.status];
   }
 
-
-
-  constructor() {
+  onChangeStatus() {
+    this.service.changeStatus(this.server);
   }
 }

@@ -6,9 +6,12 @@
     Add Server
   </button>
 
-  <div *ngIf="displayForm" class="form-group">
-    <app-create-server-td (cancel)="displayForm = false">
-    </app-create-server-td>
+  <div *ngIf="displayForm" class="card mt-4">
+    <h2 class="card-header">Create new server</h2>
+    <div class="card-body">
+      <app-create-server (cancel)="displayForm = false" (submit)="onCreateServer($event)">
+      </app-create-server>
+    </div>
   </div>
 
 
@@ -17,7 +20,9 @@
       <div>
         <h3>Servers</h3>
         <ul class="list-group">
-          <app-server *ngFor="let server of servers" [server]="server"></app-server>
+          <app-server *ngFor="let server of servers"
+            [server]="server">
+          </app-server>
         </ul>
       </div>
     </div>

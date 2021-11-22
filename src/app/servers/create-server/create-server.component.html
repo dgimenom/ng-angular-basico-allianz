@@ -1,26 +1,35 @@
 <div class="container">
-  <form>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">Name</label>
       <input
         id="name"
         class="form-control"
+        formControlName="name"
         type="text"
         placeholder="Please, enter a server name">
+      <span *ngIf="name.invalid && name.touched && name.hasError('required')"
+        class="error">El nombre es obligatorio</span>
+      <span *ngIf="name.invalid && name.touched && name.hasError('maxlength')"
+        class="error">El nombre debe tener como máximo
+          {{ name.errors.maxlength.requiredLength}} caracteres</span>
     </div>
+
     <div class="form-group">
       <label for="id">ID</label>
       <input
         id="id"
         class="form-control"
+        formControlName="id"
         type="number"
         placeholder="Please, enter a server ID">
     </div>
     <div class="form-group">
       <label for="status">Status</label>
-      <select id="status" class="form-control">
-        <option>Online</option>
-        <option>Offline</option>
+      <select id="status" formControlName="status" class="form-control">
+        <option value="online">ONLINE</option>
+        <option value="offline">OFFLINE</option>
+        <option value="initializing">Initializing</option>
       </select>
     </div>
     <div class="form-group">
@@ -28,11 +37,12 @@
       <div *ngFor="let instance of instanceTypeOptions">
         <input
           [value]="instance"
-          name="instanceType"
+          formControlName="instanceType"
           type="radio">
           {{ instance }}
         </div>
     </div>
+    <button type="button" (click)="onDebug()" class="btn btn-sm btn-primary">Debug</button>
     <button type="submit" class="btn btn-sm btn-primary">Create Server</button>
     <button type="submit" (click)="onCancel()" class="btn btn-sm btn-danger ml-2">Cancel</button>
   </form>

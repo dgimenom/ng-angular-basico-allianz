@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ServerComponent } from './servers/server/server.component';
-import { FormsModule } from '@angular/forms';
+
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { ShortenWithParamsPipe } from './pipes/shorten-with-params.pipe';
 import { LoggerService } from './servers/services/logger.service';
@@ -27,7 +28,8 @@ import { CreateServerTdComponent } from './servers/create-server-td/create-serve
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ServersService,

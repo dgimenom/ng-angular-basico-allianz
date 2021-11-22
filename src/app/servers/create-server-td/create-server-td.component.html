@@ -7,6 +7,7 @@
         name="name"
         class="form-control"
         type="text"
+        required
         ngModel
         placeholder="Please, enter a server name">
     </div>
@@ -17,6 +18,8 @@
         name="id"
         class="form-control"
         type="number"
+        required
+        pattern="^[1-9][0-9]*$"
         ngModel
         placeholder="Please, enter a server ID">
     </div>
