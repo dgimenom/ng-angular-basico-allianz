@@ -12,9 +12,9 @@ import { ServersService } from './services/servers.service';
   providers: [ServersService]
 })
 export class ServersComponent {
-
-  // @Input() servers: Server[] = [];
   servers: Server[] = [];
+  displayForm = false;
+
   @Output() onCreate: EventEmitter<Server> = new EventEmitter<Server>();
   serverName = '';
 
@@ -34,11 +34,8 @@ export class ServersComponent {
   }
 
   onCreateServer(serverInputName: HTMLInputElement) {
-    const newCreatedServer = new Server(serverInputName.value, this.servers.length, 'stable');
-    // this.servers.push(newCreatedServer);
-    // this.onCreate.emit(newCreatedServer);
-
-    this.service.addServer(newCreatedServer);
+    // const newCreatedServer = new Server(serverInputName.value, this.servers.length, 'stable');
+    // this.service.addServer(newCreatedServer);
   }
 
   getStatusClass(statusServer: string) {

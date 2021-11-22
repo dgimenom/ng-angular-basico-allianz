@@ -11,6 +11,8 @@ import { ShortenWithParamsPipe } from './pipes/shorten-with-params.pipe';
 import { LoggerService } from './servers/services/logger.service';
 import { ServersService } from './servers/services/servers.service';
 import { ServersComponent } from './servers/servers.component';
+import { CreateServerComponent } from './servers/create-server/create-server.component';
+import { CreateServerTdComponent } from './servers/create-server-td/create-server-td.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ServersComponent } from './servers/servers.component';
     ServerComponent,
     ShortenPipe,
     ShortenWithParamsPipe,
-    ServersComponent
+    ServersComponent,
+    CreateServerComponent,
+    CreateServerTdComponent
   ],
   imports: [
     BrowserModule,

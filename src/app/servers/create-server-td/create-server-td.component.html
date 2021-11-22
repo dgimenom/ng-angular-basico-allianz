@@ -1,0 +1,45 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        id="name"
+        name="name"
+        class="form-control"
+        type="text"
+        ngModel
+        placeholder="Please, enter a server name">
+    </div>
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input
+        id="id"
+        name="id"
+        class="form-control"
+        type="number"
+        ngModel
+        placeholder="Please, enter a server ID">
+    </div>
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select id="status" ngModel name="status" class="form-control">
+        <option>Online</option>
+        <option>Offline</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="instance">Instance Type</label>
+      <div *ngFor="let instance of instanceTypeOptions">
+        <input
+          [value]="instance"
+          name="instanceType"
+          ngModel
+          type="radio">
+          {{ instance }}
+        </div>
+    </div>
+    <button type="button" (click)="onDebug(f)" class="btn btn-sm btn-primary">Debug</button>
+    <button type="submit" class="btn btn-sm btn-primary">Create Server</button>
+    <button type="button" (click)="onCancel()" class="btn btn-sm btn-danger ml-2">Cancel</button>
+  </form>
+</div>
