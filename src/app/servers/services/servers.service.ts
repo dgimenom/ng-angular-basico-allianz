@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Server } from '../user.model';
+import { Server } from '../server.model';
 import { LoggerService } from './logger.service';
 
 @Injectable()
@@ -21,7 +21,7 @@ export class ServersService {
     this.servers.push(server);
     this.logger.logData('Added server: ' + server.name);
   }
-  
+
   changeStatus(server: Server) {
     const status = server.status === 'stable' ? 'failed' : 'stable';
     this.servers[server.id].status = status;

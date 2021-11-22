@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
-import { Server } from '../user.model';
+import { Server } from './server.model';
 
-import { ServersService } from './servers.service';
+import { ServersService } from './services/servers.service';
 
 
 
@@ -12,7 +12,7 @@ import { ServersService } from './servers.service';
   providers: [ServersService]
 })
 export class ServersComponent {
-  
+
   // @Input() servers: Server[] = [];
   servers: Server[] = [];
   @Output() onCreate: EventEmitter<Server> = new EventEmitter<Server>();
@@ -34,11 +34,7 @@ export class ServersComponent {
   }
 
   onCreateServer(serverInputName: HTMLInputElement) {
-    const newCreatedServer = new Server(
-      serverInputName.value,
-      this.servers.length + 1,
-      'stable'
-    );
+    const newCreatedServer = new Server(serverInputName.value, this.servers.length, 'stable');
     // this.servers.push(newCreatedServer);
     // this.onCreate.emit(newCreatedServer);
 

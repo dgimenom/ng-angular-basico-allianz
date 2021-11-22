@@ -4,19 +4,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { ServerComponent } from './server/server.component';
-import { ClientComponent } from './client/client.component';
+import { ServerComponent } from './servers/server/server.component';
 import { FormsModule } from '@angular/forms';
-import { ServerClassesComponent } from './server-classes/server-classes.component';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { ShortenWithParamsPipe } from './pipes/shorten-with-params.pipe';
+import { LoggerService } from './servers/services/logger.service';
+import { ServersService } from './servers/services/servers.service';
 import { ServersComponent } from './servers/servers.component';
-import { LoggerService } from './servers/logger.service';
-import { ServersService } from './servers/servers.service';
 
 @NgModule({
-  declarations: [AppComponent, ServerComponent, ClientComponent, ServerClassesComponent, ShortenPipe, ShortenWithParamsPipe, ServersComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  declarations: [
+    AppComponent,
+    ServerComponent,
+    ShortenPipe,
+    ShortenWithParamsPipe,
+    ServersComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
+  ],
   providers: [
     ServersService,
     LoggerService],

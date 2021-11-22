@@ -1,11 +1,4 @@
-export interface User {
-    name: string;
-    id: number | string;
-    email?: string;
-    sayHello(): void;
-}
-
-export class Server{
+export class Server {
     public name: string;
     public id: number;
     public status: string;
