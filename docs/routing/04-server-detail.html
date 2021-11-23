@@ -1,0 +1,19 @@
+<p>
+  <strong>ID: </strong>
+  <span class="ml-2">{{ server.id }}</span>
+</p>
+<p>
+  <strong>Name: </strong>
+  <span class="ml-2">{{ server.name }}</span>
+</p>
+<p>
+  <strong>Status: </strong>
+  <span class="ml-2 badge" [ngClass]="getStatusClass(server)">{{ server.status }}</span>
+</p>
+<p>
+  <strong>innstance type: </strong>
+  <span class="ml-2">{{ server.instanceType }}</span>
+</p>
+
+<button class="btn btn-primary"
+  (click)="onChangeStatus()">Change Status</button>

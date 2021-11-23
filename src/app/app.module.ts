@@ -14,6 +14,10 @@ import { ServersService } from './servers/services/servers.service';
 import { ServersComponent } from './servers/servers.component';
 import { CreateServerComponent } from './servers/create-server/create-server.component';
 import { CreateServerTdComponent } from './servers/create-server-td/create-server-td.component';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { UserComponent } from './users/user/user.component';
+import { LoginComponent } from './users/login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { CreateServerTdComponent } from './servers/create-server-td/create-serve
     ShortenWithParamsPipe,
     ServersComponent,
     CreateServerComponent,
-    CreateServerTdComponent
+    CreateServerTdComponent,
+    HomeComponent,
+    UsersComponent,
+    UserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
