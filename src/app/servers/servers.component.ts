@@ -6,7 +6,6 @@ import { ServersService } from './services/servers.service';
 
 
 @Component({
-  selector: 'app-servers',
   templateUrl: './servers.component.html',
   styleUrls: ['./servers.component.css'],
   providers: [ServersService]

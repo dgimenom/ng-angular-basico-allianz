@@ -1,5 +1,7 @@
 <p>User Id is {{ user.id }}</p>
 <p>User name is {{ user.name }}</p>
+<p *ngIf="allowEdit">AllowEdit is true</p>
+<p *ngIf="fragment">Fragment is {{fragment}}</p>
 
 <p>
   <a [routerLink]="['/user', 10, 'Emilio']"
@@ -11,5 +13,11 @@
 </p>
 <p>
   <a [routerLink]="['/user', 2, 'Ana']"
+     [queryParams]="{allowEdit: 1}"
     class="btn btn-primary">Go to User Ana (2)</a>
+</p>
+<p>
+  <a [routerLink]="['/user', 3, 'Luis']"
+     fragment="example"
+    class="btn btn-primary">Go to User Luis (3)</a>
 </p>

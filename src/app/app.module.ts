@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { LoginComponent } from './users/login/login.component';
+import { NotfoundComponent } from './error/notfound.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoginComponent } from './users/login/login.component';
     HomeComponent,
     UsersComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

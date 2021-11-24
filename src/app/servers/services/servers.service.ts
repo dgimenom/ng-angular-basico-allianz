@@ -13,6 +13,10 @@ export class ServersService {
     new Server('Development', 3, 'initializing'),
   ];
 
+  getServer(id: number): Server{
+    return this.servers[id];
+  }
+
   getServers(){
     return this.servers;
   }

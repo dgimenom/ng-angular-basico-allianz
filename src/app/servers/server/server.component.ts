@@ -1,16 +1,25 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Server } from '../server.model';
 import { ServersService } from '../services/servers.service';
 
 @Component({
-  selector: 'app-server',
   templateUrl: 'server.component.html',
   styleUrls: ['server.component.css'],
 })
-export class ServerComponent {
-  @Input() server?: Server;
+export class ServerComponent implements OnInit {
+  server: Server;
 
-  constructor(private service: ServersService) {
+  constructor(
+    private service: ServersService,
+    private route: ActivatedRoute
+  ) {
+  }
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.server = this.service.getServer(+params['id'])
+    });
   }
 
   getStatusClass(server: Server){

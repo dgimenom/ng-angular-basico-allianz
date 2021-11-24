@@ -13,7 +13,7 @@
 
 <div class="container">
   <div class="row border border-primary p-2 my-2">
-    <div class="col-12">
+    <div class="col-12 d-flex justify-content-between">
       <ul class="nav nav-pills">
         <li class="nav-item">
           <a class="nav-link"
@@ -28,10 +28,14 @@
         </li>
         <li class="nav-item">
           <a class="nav-link"
-            routerLink="/servers"
+            [routerLink]="['/servers']"
             routerLinkActive="active">Servers</a>
         </li>
       </ul>
+         <a *ngIf="!logged" routerLink="/login" class="btn btn-primary">Log in</a>
+      <div *ngIf="logged">
+         Hello user! <a (click)="onLogout()" class="btn btn-secondary">Logout</a>
+      </div>
     </div>
   </div>
 
