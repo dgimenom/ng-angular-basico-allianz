@@ -1,3 +1,4 @@
+<!--
 <app-servers>
     <div header class="card p-4 mb-2">
         <h2>Servers Header</h2>
@@ -8,3 +9,35 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim voluptates repellendus eius veritatis facere nisi dolorum quasi ducimus est fuga? Deserunt cumque ea ducimus aperiam praesentium exercitationem molestias? Nemo, doloribus?</p>
     </div>
 </app-servers>
+-->
+
+<div class="container">
+  <div class="row border border-primary p-2 my-2">
+    <div class="col-12">
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+            routerLink="/users"
+            routerLinkActive="active">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+            routerLink="/servers"
+            routerLinkActive="active">Servers</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

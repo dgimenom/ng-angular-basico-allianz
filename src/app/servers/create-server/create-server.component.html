@@ -10,6 +10,8 @@
         placeholder="Please, enter a server name">
       <span *ngIf="name.invalid && name.touched && name.hasError('required')"
         class="error">El nombre es obligatorio</span>
+      <span *ngIf="name.invalid && name.touched && name.hasError('forbiddenName')"
+        class="error">El nombre no es válido</span>
       <span *ngIf="name.invalid && name.touched && name.hasError('maxlength')"
         class="error">El nombre debe tener como máximo
           {{ name.errors.maxlength.requiredLength}} caracteres</span>

@@ -1,2 +1,15 @@
-<p>User Id is 10 </p>
-<p>User name is Emilio </p>
+<p>User Id is {{ user.id }}</p>
+<p>User name is {{ user.name }}</p>
+
+<p>
+  <a [routerLink]="['/user', 10, 'Emilio']"
+    class="btn btn-primary">Go to User Emilio (10)</a>
+</p>
+<p>
+  <a [routerLink]="['/user', 1, 'Oscar']"
+  class="btn btn-primary">Go to User Oscar (1)</a>
+</p>
+<p>
+  <a [routerLink]="['/user', 2, 'Ana']"
+    class="btn btn-primary">Go to User Ana (2)</a>
+</p>

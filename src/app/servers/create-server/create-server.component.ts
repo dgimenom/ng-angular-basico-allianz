@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Server } from '../server.model';
 
 @Component({
@@ -15,6 +15,7 @@ export class CreateServerComponent implements OnInit {
   instanceTypeOptions = ['large', 'medium', 'small'];
   positiveNumberPattern = /^[1-9][0-9]*$/;
   maxLengthAllowed = 50;
+  forbiddenServerNames = ['Test', 'Server'];
 
   get name(): FormControl {
     return this.form.get('name') as FormControl;
@@ -36,13 +37,29 @@ export class CreateServerComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildForm();
+
+    this.form.valueChanges.subscribe(value => {
+      // console.log('valueChanges', value);
+    });
+
+    this.form.statusChanges.subscribe(status => {
+      // console.log('statusChanges', status);
+    });
+
+    this.form.get('name').valueChanges.subscribe(value => {
+      console.log('form name value', value);
+    });
   }
 
   buildForm() {
     this.form = new FormGroup({
       name: new FormControl(
         '',
-        [Validators.required, Validators.maxLength(this.maxLengthAllowed)]
+        [
+          Validators.required,
+          Validators.maxLength(this.maxLengthAllowed),
+          this.forbiddenNames.bind(this)
+        ]
       ),
       id: new FormControl(
         '',
@@ -55,6 +72,14 @@ export class CreateServerComponent implements OnInit {
 
   onCancel() {
     this.cancel.emit(true);
+  }
+
+  forbiddenNames(control: FormControl): ValidationErrors {
+    if (this.forbiddenServerNames.includes(control.value)) {
+      return { forbiddenName: true };
+    }
+
+    return null;
   }
 
   onSubmit() {
@@ -74,6 +99,18 @@ export class CreateServerComponent implements OnInit {
   }
 
   onDebug() {
+    const value = {
+      name: 'nombre para setValue',
+      id: 50,
+      status: 'online',
+      instanceType: 'small'
+    };
+
+    // this.form.setValue(value);
+
+    this.form.patchValue({ name: 'nombre para patchValue' });
+
+
     console.log('form', this.form);
     console.log('form value', this.form.value);
     console.log('form valid', this.form.valid);
