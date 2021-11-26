@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Server } from './server.model';
 
 import { ServersService } from './services/servers.service';
@@ -14,16 +15,38 @@ export class ServersComponent {
   servers: Server[] = [];
   displayForm = false;
 
-  constructor(private service: ServersService) {}
+  constructor(
+    private service: ServersService,
+    private router: Router
+  ) {}
 
   ngOnInit(){
-    this.servers = this.service.getServers();
+    this.loadServers();
   }
 
   onCreateServer(server: Server) {
     server.id = this.servers.length;
-    this.service.addServer(server);
-    this.displayForm = false;
+
+    this.service.addServer(server).subscribe(data => {
+      this.loadServers();
+      this.displayForm = false;
+    });
+
+  }
+
+  private loadServers() {
+    this.service.getServers().subscribe(
+      servers => {
+        this.servers = servers;
+      },
+      (err) => {
+        console.error('error recibiendo datos');
+        this.router.navigateByUrl('/error');
+      },
+      () => {
+        console.log('Completed!!');
+      }
+    );
   }
 
 }

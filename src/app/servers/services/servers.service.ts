@@ -1,34 +1,48 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Server } from '../server.model';
 import { LoggerService } from './logger.service';
 
 @Injectable()
 export class ServersService {
-  constructor(private logger: LoggerService) {}
+  api = 'http://localhost:3000/servers';
 
-  servers: Server[] = [
-    new Server('Production', 0, 'online'),
-    new Server('User database MySQL master', 1, 'offline'),
-    new Server('Stage', 2, 'offline'),
-    new Server('Development', 3, 'initializing'),
-  ];
+  constructor(
+    private logger: LoggerService,
+    private http: HttpClient
+  ) {}
 
-  getServer(id: number): Server{
-    return this.servers[id];
-  }
+  servers: Server[];
 
   getServers(){
-    return this.servers;
+    return this.http.get<Server[]>(this.api + 'xxxxx');
   }
 
-  addServer(server: Server) {
-    this.servers.push(server);
+  getServer(id: number): Observable<Server>{
+    return this.http.get<Server>(this.api + '/' + id);
+  }
+
+
+  addServer(server: Server): Observable<Server> {
     this.logger.logData('Added server: ' + server.name);
+
+    const body = {
+      name: server.name,
+      status: server.status,
+      instanceType: server.instanceType,
+    }
+
+    return this.http.post<Server>(this.api, body);
   }
 
   changeStatus(server: Server) {
     const status = server.status === 'online' ? 'offline' : 'online';
-    this.servers[server.id].status = status;
+    const body = {
+      status: status
+    };
+
+    return this.http.patch<Server>(this.api + '/' + server.id, body );
   }
 
 }

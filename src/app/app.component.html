@@ -15,7 +15,7 @@
   {{ now | date:'mm:ss' }}
 </div>
 
-<div class="container">
+<div class="container" *ngIf="false">
   <app-emitter></app-emitter>
   <app-receiver *ngIf="showReceiver"></app-receiver>
 
@@ -23,7 +23,7 @@
 </div>
 
 
-<div class="container" *ngIf="false">
+<div class="container">
   <div class="row border border-primary p-2 my-2">
     <div class="col-12 d-flex justify-content-between">
       <ul class="nav nav-pills">
