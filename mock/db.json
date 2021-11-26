@@ -1,0 +1,14 @@
+{
+  "servers" : [
+    {"id": 1, "name": "Webserver 1", "status": "online", "instanceType": "medium"},
+    {"id": 2, "name": "Webserver 2", "status": "online", "instanceType": "medium"},
+    {"id": 3, "name": "Webserver 3", "status": "online", "instanceType": "medium"},
+    {"id": 4, "name": "Webserver 4", "status": "offline", "instanceType": "medium"},
+    {"id": 5, "name": "Database master", "status": "online", "instanceType": "large"},
+    {"id": 6, "name": "Database slave", "status": "online", "instanceType": "large"},
+    {"id": 7, "name": "Redis", "status": "online", "instanceType": "medium"},
+    {"id": 8, "name": "Stage 1", "status": "online", "instanceType": "medium"},
+    {"id": 9, "name": "Stage 2", "status": "online", "instanceType": "small"},
+    {"id": 10, "name": "Development", "status": "online", "instanceType": "small"}
+  ]
+}
