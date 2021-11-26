@@ -19,6 +19,8 @@ import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { LoginComponent } from './users/login/login.component';
 import { NotfoundComponent } from './error/notfound.component';
+import { ReceiverComponent } from './messages/receiver.component';
+import { EmitterComponent } from './messages/emitter.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { NotfoundComponent } from './error/notfound.component';
     UsersComponent,
     UserComponent,
     LoginComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    ReceiverComponent,
+    EmitterComponent
   ],
   imports: [
     BrowserModule,
