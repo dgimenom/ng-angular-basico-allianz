@@ -1,0 +1,9 @@
+- Implement a create recipe form in the CreateRecipe component.
+- The form must have 4 fields: name , desription, estimatedTime (number), difficulty -> select or radio input).
+- Name field is required and name cannot be more than 100 characters.
+- Description is NOT required.
+- Difficulty field is mandatory
+- Estimated Time is required, must be positive and between 0 and 500 minutes.
+positive number pattern: /^\d*[1-9]\d*$/
+- Display the error messages in each field in function of the error and give them some styles.
+- When submit, mark the fields as touched and check if the form is valid. If valid, save the new recipe in the recipes list of the recipes service.

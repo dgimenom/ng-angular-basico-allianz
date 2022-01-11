@@ -1,0 +1,1 @@
+- Display the counter in the app component using an Observable.

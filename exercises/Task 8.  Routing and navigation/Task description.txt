@@ -1,0 +1,15 @@
+- Create a new routing module and configure it regarding the following guidelines:
+- The home component is the component that is shown when the app is initialized.
+- Add new routes for the Recipes list page and create recipe page. Note that we had both in the same page and now we will have them separately.
+- Configure the app component menu links to navigate to these pages.
+- Create a RecipeDetail component and display there the name and the Id of a recipe (e.g. in a paragraph).
+- Configure the the name of the Recipe card component as a link to navigate programmatically to the recipe detail.
+- Add a path for the recipe detail with the recipe id as a param.
+- Sep up the Recipe Detail component to get the id from the URL param.
+- Configure the wildcard to redirect to the home.
+
+- Extra: 
+- Add an Edit button in the Recipe Detail and show it if the query param 'allowEdit' sent through the URL is '1'. You must send the query param in the navigate method from Recipe link.
+
+
+
