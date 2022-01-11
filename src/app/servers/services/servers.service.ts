@@ -16,7 +16,7 @@ export class ServersService {
   servers: Server[];
 
   getServers(){
-    return this.http.get<Server[]>(this.api + 'xxxxx');
+    return this.http.get<Server[]>(this.api);
   }
 
   getServer(id: number): Observable<Server>{

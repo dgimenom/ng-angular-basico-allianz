@@ -25,8 +25,6 @@ export class ServersComponent {
   }
 
   onCreateServer(server: Server) {
-    server.id = this.servers.length;
-
     this.service.addServer(server).subscribe(data => {
       this.loadServers();
       this.displayForm = false;
